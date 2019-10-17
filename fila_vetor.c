@@ -8,12 +8,15 @@ typedef struct fila{
 	int p,u;
 }fila;
 
-void cria_fila(fila *f){
+fila *f;
+
+void cria_fila(){
+    f = malloc(sizeof(fila));
 	f->p=0;
 	f->u=0;
 }
 
-int insere_elemento(fila *f, int x){
+int insere_elemento(int x){
 	if(!fila_cheia(f)){
 		f->fila[f->u] = x;
 		f->u++;
@@ -22,15 +25,16 @@ int insere_elemento(fila *f, int x){
 	return 0;
 } 
 
-int remove_elemento(fila *f, int *valor){
+int remove_elemento(int *valor){
     if (!fila_vazia(f)){
-        *valor = f->fila[f->p++];
+        *valor = f->fila[f->p];
+        f->p++;
         return 1;
     }
     return 0;
 }
 
-int fila_vazia(fila *f){
+int fila_vazia(){
     if (f->p == f->u)
     {
         f->u = 0;
@@ -40,15 +44,21 @@ int fila_vazia(fila *f){
     return 0;
 }
 
-int fila_cheia(fila *f){return f->u == N;}
+int fila_cheia(){return f->u == N;}
 
-int tamanho_fila(fila *f){ return f->u - f->p;}
+int tamanho_fila(){ return f->u - f->p;}
 
-void imprime_fila(fila *f){
+void imprime_fila(){
     int i;
-    printf("|");
-    for(i = f->p; i < f->u; i++){
-        printf(" %d |", f->fila[i]);
+    if (!fila_vazia())
+    {
+        
+        printf("|");
+        for(i = f->p; i < f->u; i++){
+            printf(" %d |", f->fila[i]);
+        }
+        printf("\n");
     }
-    printf("\n");
+    else printf("nao ha itens na sua fila :(\n");
+    
 }
