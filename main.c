@@ -18,13 +18,13 @@ int main(){
 
     verificacao = remove_elemento(&valor);
     printf("%d\n", valor);
-    remove_elemento(&valor);
+    //remove_elemento(&valor);
     printf("%d\n", valor);
-    remove_elemento(&valor);
+    //remove_elemento(&valor);
     printf("%d\n", valor);
-    remove_elemento(&valor);
+    //remove_elemento(&valor);
     printf("%d\n", valor);
-    remove_elemento(&valor);
+    //remove_elemento(&valor);
     printf("%d\n", valor);
 
     imprime_fila();

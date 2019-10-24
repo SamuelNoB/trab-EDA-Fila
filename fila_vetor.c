@@ -49,16 +49,28 @@ int fila_cheia(){return f->u == N;}
 int tamanho_fila(){ return f->u - f->p;}
 
 void imprime_fila(){
-    int i;
-    if (!fila_vazia())
+    int j, i, contaDigitos=0, numero;
+
+    for (j = 0; j < N; j++)
     {
-        
-        printf("|");
+        numero = f->fila[j];
+        while (numero!=0)
+        {
+            contaDigitos++;
+            numero= numero / 10;
+        }
+    }
+
+    printf(" ");
+    for (i = 0; i < f->u*3+contaDigitos; i++) printf("-");
+    
+        printf("\n|");
         for(i = f->p; i < f->u; i++){
             printf(" %d |", f->fila[i]);
         }
-        printf("\n");
-    }
-    else printf("nao ha itens na sua fila :(\n");
+        printf("\n ");
+
+    for (i = 0; i <  f->u*3+contaDigitos; i++) printf("-");
+    printf("\n");
     
 }

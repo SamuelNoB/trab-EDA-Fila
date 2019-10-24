@@ -74,15 +74,9 @@ void imprime_fila(){
 
 	imprimir = fila->prox;
 	qtdNumeros = tamanho_fila();
+
 	printf(" ");
-	for (i = 0; i < qtdNumeros*3; i++)
-	{
-		printf("-");
-	}
-	for (i = 0; i < contaDigitos; i++)
-	{
-		printf("-");
-	}
+	for (i = 0; i < (qtdNumeros*3+contaDigitos); i++) printf("-");
 
 	printf("\n|");
 	while (imprimir->prox!= fila)
@@ -92,9 +86,6 @@ void imprime_fila(){
 	}
 	printf("\n ");
 
-	for (i = 0; i < qtdNumeros*3; i++) printf("-");
-	
-	for (i = 0; i < contaDigitos; i++) printf("-");
-
-
+	for (i = 0; i < (qtdNumeros*3+contaDigitos); i++) printf("-");
+	printf("\n");
 }
