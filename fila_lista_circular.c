@@ -4,7 +4,7 @@
 
 typedef struct celula{
 	int dado;
-	celula *prox;
+	struct celula *prox;
 }celula;
 
 celula *fila;
@@ -26,11 +26,13 @@ int insere_elemento(int x){
 }
 
 int remove_elemento(int *valor){
-	if (fila_vazia) return 0;	
-
+	if (fila_vazia()) return 0;	
 	celula *lixo = fila ->prox;
+
 	*valor = lixo->dado;
+
 	fila->prox = lixo->prox;
+
 	free(lixo);
 	return 1;
 }
@@ -45,47 +47,96 @@ int fila_vazia(){ // se estiver vazia retornara 1, caso contrario retornara 0
 
 int tamanho_fila(){
 	if (fila->prox == NULL) return 0;
-
 	int i=0;
-	celula *contagem=fila->prox;
+	celula *contagem=fila;
+
 	while (contagem->prox!= fila)
 	{
 		i++;
-		contagem->prox = contagem->prox;
+		contagem = contagem->prox;
 	}
 	return i;
 	
 }
 
 void imprime_fila(){
-	celula *imprimir = fila->prox;
+	celula *imprimir = fila;
 	int contaDigitos=0,numero,i, qtdNumeros;
 
-	while (imprimir->prox!= fila)
+	do
 	{
+		imprimir = imprimir->prox;
 		numero = imprimir->dado;
 		while (numero != 0)
 		{
 			contaDigitos++;
 			numero = numero/10;
 		}
-		imprimir->prox = imprimir->prox;
-	}
+		
+	}while (imprimir->prox != fila);
 
-	imprimir = fila->prox;
+	imprimir = fila;
 	qtdNumeros = tamanho_fila();
 
 	printf(" ");
-	for (i = 0; i < (qtdNumeros*3+contaDigitos); i++) printf("-");
+	for (i = 0; i < ((qtdNumeros)*3+contaDigitos-1); i++) printf("-");
 
 	printf("\n|");
-	while (imprimir->prox!= fila)
+	do
 	{
+		imprimir = imprimir->prox;
 		printf(" %d |", imprimir->dado);
-		imprimir->prox = imprimir->prox;
-	}
+		
+	}while (imprimir->prox!= fila);
 	printf("\n ");
 
-	for (i = 0; i < (qtdNumeros*3+contaDigitos); i++) printf("-");
+	for (i = 0; i < ((qtdNumeros)*3+contaDigitos-1); i++) printf("-");
 	printf("\n");
+
+	imprimir=fila;
+	do
+	{
+		imprimir = imprimir->prox;
+		if (imprimir->dado == fila->prox->dado)
+		{
+
+			numero = imprimir->dado;
+			contaDigitos=0;
+
+			while (numero != 0)
+			{
+			contaDigitos++;
+			numero = numero/10;
+			}
+
+			if(contaDigitos <= 2) printf("  p");
+			else printf("   p");
+		}
+		else 
+		{
+			contaDigitos=0;
+			numero = imprimir->dado;
+			while (numero != 0)
+			{
+			contaDigitos++;
+			numero = numero/10;
+			}
+			printf("   ");
+			for (i = 0; i < contaDigitos; i++){
+				if (imprimir->prox != fila) printf(" ");
+				else 
+				{
+					if (contaDigitos <= 2) printf(" ");
+					if (contaDigitos==3) printf("  ");
+					break;
+				}
+				
+			}	
+
+		}
+		if (imprimir->prox == fila) printf("u");
+
+	} while (imprimir->prox!=fila);
+	
+
 }

@@ -1,18 +1,18 @@
 #ifndef _fila_lista_circular_H
 #define _fila_lista_circular_H
 
-void cria_fila(fila *f);
+void cria_fila();
 
-int insere_elemento(fila *f, int x);
+int insere_elemento(int x);
 
-int remove_elemento(fila *f, int *valor);
+int remove_elemento(int *valor);
 
-int fila_cheia(fila *f);
+int fila_cheia();
 
-int fila_vazia(fila *f);
+int fila_vazia();
 
-int tamanho_fila(fila *f);
+int tamanho_fila();
 
-void imprime_fila(fila *f);
+void imprime_fila();
 
 #endif
