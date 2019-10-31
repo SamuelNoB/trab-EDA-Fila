@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "fila_lista_circular.h"
+#include "fila_vetor.h"
 
 typedef struct celula{
 	int dado;
@@ -134,7 +134,7 @@ void imprime_fila(){
 			}	
 
 		}
-		if (imprimir->prox == fila) printf("u");
+		if (imprimir->prox == fila) printf("u\n");
 
 	} while (imprimir->prox!=fila);
 	

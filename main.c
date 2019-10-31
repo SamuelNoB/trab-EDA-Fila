@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "fila_lista_circular.h"
 
 int menu()
 {
@@ -60,7 +61,7 @@ int main()
 					verificacao++;
 			}
 
-			if (verificacao > 0) printf("%d elementos foram inseridos na fila, mas %d nao couberam\n", TAMANHO_FILA, verificacao);
+			if (verificacao > 0) printf("%d elementos tentaram ser inseridos na fila, mas %d nao couberam\n", qtdsElements, verificacao);
 		}
 		else if(opcao == 2)	// remover elemento
 		{
@@ -68,6 +69,7 @@ int main()
 
 			int qtdRemover = 0;
 			scanf("%d", &qtdRemover);
+			printf("\n");
 
 			int i;
 			for (i = 0; i < qtdRemover; i++)
@@ -84,10 +86,12 @@ int main()
 					printf("Elemento removido: %d\n", valor);
 				}
 			}
+			printf("\n");
 		}
 		else if(opcao == 3) // imprimir a fila
 		{
-			imprime_fila();
+			if(!fila_vazia()) imprime_fila();
+			else printf("\nsua fila esta vazia. adicione elementos antes de tentar imprimi-la.\n\n");	
 		}
 		else if(opcao == 4) // reiniciar a fila
 		{
@@ -96,12 +100,16 @@ int main()
 				int i;
 				int lixo = -1;
 
-				int qtd = qtdsElements;
+				int qtd = tamanho_fila();
 
 				for (i = 0; i < qtd; i++)
 				{
 					remove_elemento(&lixo);
 				}
+
+				cria_fila();
+				
+				printf("\nFila reiniciada.\n");
 			}
 		}
 		else // sair

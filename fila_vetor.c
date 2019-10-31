@@ -71,12 +71,12 @@ void imprime_fila(){
         for(i = 0; i < f->u; i++){
             printf(" %d |", f->fila[i]);
         }
-        printf("\n ");
+        printf("\n ");//fim da parte responsavel pela segunda linha
 
-    for (i = 0; i <  (f->u)*3+contaDigitos-1; i++) printf("-");
-    printf("\n");//fim da parte responsavel pela segunda linha
+    for (i = 0; i <  (f->u)*3+contaDigitos-1; i++) printf("-"); // parte responsavel pela terceira linha
+    printf("\n");
 
-//inicio da parte responsavel pela terceira linha
+//inicio da parte responsavel pela quarta linha
     if (f->p == 0){
         contaDigitos = tamanho_numero(f->fila[f->p]);
         if (contaDigitos==1) printf("  p");
@@ -84,52 +84,61 @@ void imprime_fila(){
         else printf("   p ");
         for ( i = 1; i < (f->u); i++)
         {
-            printf("iii");
+            printf("   ");
             if(i != f->u-1){
                 numero = f->fila[i];
                 contaDigitos= tamanho_numero(numero);
-                printf("o");
+                for (j = 0; j < contaDigitos; j++) printf(" ");
             }
         }
 
         contaDigitos=tamanho_numero(f->fila[f->u-1]);
         if (contaDigitos <= 2) printf("u");
         else if (contaDigitos == 3) printf(" u");
-        
+        printf("\n");
         
         
     }
     else
     {
+        printf("  ");
         for( i = 0; i < f->u; i++)
         {
             contaDigitos=tamanho_numero(f->fila[i]);
 
-            printf("  ");
-            if (i == f->p)
-            {
-                if (contaDigitos <=2) printf("p");
-                else printf(" p");
-                
-            }
-            if (f->fila[f->u-1] == f->fila[i])
+            if (i == f->u-1)
             {
                 if (contaDigitos <=2) printf("u");
                 else printf(" u");
                 break;
             }
+
+            for ( j = 0; j < contaDigitos; j++)
+            {
+                if(i != f->p) printf(" ");
+                else
+                {
+                    if (contaDigitos <=2) printf("p ");
+                    if( contaDigitos == 3) printf(" p ");
+                    break;
+                }
+            }
+
+
+            printf("   ");
             
-            if (!(i== f->p && contaDigitos == 1)){ 
+            /*if (!(i== f->p && contaDigitos == 1)){ 
                 for (j = 0; j < contaDigitos; j++){
                     if (f->fila[i] == f->fila[f->p] && contaDigitos == 2) contaDigitos -= 1;
                     if (f->fila[i] == f->fila[f->p] && contaDigitos == 3) contaDigitos -= 2;
                     
-                    printf(" ");
+                    printf("o");
 
                 }
-            }
-            printf(" ");
-        }    
+            }*/
+            
+        }
+        printf("\n");
     }
     
     
