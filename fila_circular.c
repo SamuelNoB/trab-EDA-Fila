@@ -10,7 +10,7 @@ int qtdsElements;
 void cria_fila()
 {
 	fila = (fila_circular *)malloc(sizeof(fila_circular));
-	fila->data = new int[N];
+	fila->data = (int*)malloc(sizeof(int) * N);
 	fila->tamanho = 0;
 	fila->capacidade = N;
 
@@ -128,7 +128,7 @@ int insere_elemento(int valor)
 		}
 
 		fila->capacidade *= 2;
-		delete[] fila->data;
+		free(fila->data);
 		fila->data = tempData;
 		tempData = NULL;
 
