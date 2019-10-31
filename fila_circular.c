@@ -49,20 +49,22 @@ int fila_cheia(celula *cel)
 {
 	// se estiver cheia retornara 1, caso contrario retornara 0
 
-	celula *imprimir = fila;
-	int tamanho = 0;
+	//celula *imprimir = fila;
+	//int tamanho = 0;
+	//
+	//do
+	//{
+	//	imprimir = imprimir->prox;
+	//	tamanho++;
+	//
+	//} while (imprimir->prox != fila);
+	//
+	//if (tamanho >= TAMANHO_FILA)
+	//	return 1;
+	//
+	//return 0;
 
-	do
-	{
-		imprimir = imprimir->prox;
-		tamanho++;
-
-	} while (imprimir->prox != fila);
-
-	if (tamanho >= TAMANHO_FILA)
-		return 1;
-
-	return 0;
+	return (cel == NULL) ? 1 : 0;
 }
 
 int fila_vazia(){ // se estiver vazia retornara 1, caso contrario retornara 0
