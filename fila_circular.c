@@ -1,6 +1,7 @@
 // fila circular com redimensionamento
 #include <stdio.h>
 #include <stdlib.h>
+#include "fila_circular.h"
 
 #define N 5
 
