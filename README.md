@@ -7,6 +7,8 @@
 
 Trabalho feito com base nas condições pedidas no enunciado dado no [link do trabalho](http://www.johnlenongardenghi.com.br/courses/2019_2/eda1/trabalho1.pdf)
 
+Codigo dispinivel no [GitHub](https://github.com/SamuelNoB/trab-EDA-Fila)
+
 ## como compilar o programa:
 1. gcc -c biblioteca.c -o biblioteca.o
 2. gcc -c main.c -o main.o
