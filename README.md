@@ -3,9 +3,9 @@
 | Nome  | Matrícula |
 | ------------ | ------------ |
 |  Gabriela de Oliveira Lemos | 17/0010872  |
-|  Samuel | 0000000000  |
+|  Samuel Nogueira Bacelar | 18/0130722  |
 
-[link do trabalho](http://www.johnlenongardenghi.com.br/courses/2019_2/eda1/trabalho1.pdf)
+Trabalho feito com base nas condições pedidas no enunciado dado no [link do trabalho](http://www.johnlenongardenghi.com.br/courses/2019_2/eda1/trabalho1.pdf)
 
 ## como compilar o programa:
 1. gcc -c biblioteca.c -o biblioteca.o

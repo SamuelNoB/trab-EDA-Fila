@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "fila_lista_circular.h"
+#include "fila_circular.h"
 
 int menu()
 {

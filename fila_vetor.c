@@ -126,17 +126,7 @@ void imprime_fila(){
 
 
             printf("   ");
-            
-            /*if (!(i== f->p && contaDigitos == 1)){ 
-                for (j = 0; j < contaDigitos; j++){
-                    if (f->fila[i] == f->fila[f->p] && contaDigitos == 2) contaDigitos -= 1;
-                    if (f->fila[i] == f->fila[f->p] && contaDigitos == 3) contaDigitos -= 2;
-                    
-                    printf("o");
 
-                }
-            }*/
-            
         }
         printf("\n");
     }
